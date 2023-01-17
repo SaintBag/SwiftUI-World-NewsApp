@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29ED47B62977150A00F658A0 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ED47B52977150A00F658A0 /* News.swift */; };
 		29F7211929770DB5002D8CB2 /* SwiftUI_World_NewsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7211829770DB5002D8CB2 /* SwiftUI_World_NewsAppApp.swift */; };
 		29F7211B29770DB5002D8CB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7211A29770DB5002D8CB2 /* ContentView.swift */; };
 		29F7211D29770DB7002D8CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F7211C29770DB7002D8CB2 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29ED47B52977150A00F658A0 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		29F7211529770DB5002D8CB2 /* SwiftUI-World-NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-World-NewsApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F7211829770DB5002D8CB2 /* SwiftUI_World_NewsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_World_NewsAppApp.swift; sourceTree = "<group>"; };
 		29F7211A29770DB5002D8CB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29ED47B4297714FB00F658A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29ED47B52977150A00F658A0 /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		29F7210C29770DB4002D8CB2 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +61,7 @@
 		29F7211729770DB5002D8CB2 /* SwiftUI-World-NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				29ED47B4297714FB00F658A0 /* Model */,
 				29F7211829770DB5002D8CB2 /* SwiftUI_World_NewsAppApp.swift */,
 				29F7211A29770DB5002D8CB2 /* ContentView.swift */,
 				29F7211C29770DB7002D8CB2 /* Assets.xcassets */,
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29ED47B62977150A00F658A0 /* News.swift in Sources */,
 				29F7211B29770DB5002D8CB2 /* ContentView.swift in Sources */,
 				29F7211929770DB5002D8CB2 /* SwiftUI_World_NewsAppApp.swift in Sources */,
 			);
