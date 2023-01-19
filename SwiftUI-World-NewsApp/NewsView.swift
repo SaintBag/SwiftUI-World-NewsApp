@@ -14,7 +14,7 @@ struct NewsView: View {
     
     var body: some View {
         
-        VStack(spacing: 0) {
+        VStack {
             ImageView()
             TitleView(title: article.title)
             DescriptionView(description: article.description, source: article.source, author: article.author)
@@ -75,7 +75,7 @@ struct DescriptionView: View {
                     Text("Author: \(author ?? "N/A")")
                 }
                 .font(.footnote)
-                .padding(20)
+                .padding()
             }
         }
         .padding(.horizontal, 6)
