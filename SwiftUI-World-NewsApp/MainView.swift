@@ -9,22 +9,38 @@ import SwiftUI
 
 struct MainView: View {
     
+    init() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
+    
     @StateObject private var viewModel: NewsViewModel = NewsViewModel()
     
     var body: some View {
         
         NavigationView {
-            ScrollView {
-                LazyVStack(spacing: 24) {
-                    ForEach(viewModel.articles) { news in
-                        NewsView(article: news)
+            
+            ZStack {
+                
+                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.6),  Color.yellow.opacity(0.8)]), startPoint: .trailing, endPoint: .topLeading)
+                    .ignoresSafeArea()
+                Color.yellow
+                    .offset(y: 400)
+                    .ignoresSafeArea()
+                
+                ScrollView {
+                    Color.yellow
+                        .offset(y: 400)
+                    
+                    LazyVStack(spacing: 24) {
+                        ForEach(viewModel.articles) { news in
+                            NewsView(article: news)
+                        }
                     }
                 }
-                .padding(.top, 10)
+                .padding(.horizontal, 8)
+                .navigationBarTitle("News")
+                .onAppear(perform: viewModel.fetchNews)
             }
-            .padding(.horizontal, 8)
-            .navigationBarTitle("News")
-            .onAppear(perform: viewModel.fetchNews)
         }
     }
 }
