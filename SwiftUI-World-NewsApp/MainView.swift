@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  SwiftUI-World-NewsApp
 //
 //  Created by Sebastian on 17/01/2023.
@@ -9,26 +9,26 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var viewModel = NewsViewModel(apiService: APIService())
+    @StateObject private var viewModel: NewsViewModel = NewsViewModel()
     
     var body: some View {
+        
         NavigationView {
-            ZStack {
-                Text(viewModel.errorMessage)
-                List {
-                    ForEach(viewModel.articles) { article in
-                        NewsView(article: article.articles)
-                            .listRowSeparator(.hidden)
+            ScrollView {
+                LazyVStack(spacing: 24) {
+                    ForEach(viewModel.articles) { news in
+                        NewsView(article: news)
                     }
                 }
-                .navigationTitle("NEWS")
-                .task {
-                   await viewModel.fetchArticle()
-                }
+                .padding(.top, 10)
             }
+            .padding(.horizontal, 8)
+            .navigationBarTitle("News")
+            .onAppear(perform: viewModel.fetchNews)
         }
     }
 }
+
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
