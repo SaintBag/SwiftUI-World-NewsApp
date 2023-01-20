@@ -14,7 +14,7 @@ enum NewsError: LocalizedError {
     case failedToDecode(error: Error)
     
     
-    var errorDescription: String {
+    private var errorDescription: String {
         switch self {
         case .invalidUrl:
             return "URL isn't valid"
@@ -32,7 +32,7 @@ protocol NewsFetchableProtocol {
     func fetchNews(completion: @escaping (Result<News, NewsError>) -> Void)
 }
 
-class ApiService: NewsFetchableProtocol {
+final class ApiService: NewsFetchableProtocol {
     func fetchNews(completion: @escaping (Result<News, NewsError>) -> Void) {
         
         guard let url = URL(string: "https://api.lil.software/news") else {
@@ -66,9 +66,14 @@ class ApiService: NewsFetchableProtocol {
     }
 }
 
-class NewsViewModel: ObservableObject {
+final class NewsViewModel: ObservableObject {
     
     @Published var articles: [Article] = []
+    private let apiService: NewsFetchableProtocol
+    
+    init(apiService: NewsFetchableProtocol) {
+        self.apiService = apiService
+    }
     
     func fetchNews() {
         

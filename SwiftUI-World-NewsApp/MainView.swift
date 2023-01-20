@@ -16,8 +16,6 @@ struct MainView: View {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
-    
-    
     var body: some View {
         
         NavigationView {
@@ -48,6 +46,7 @@ struct MainView: View {
             }
         }
     }
+    
     func load(url: String?) {
         guard let link = url,
               let url = URL(string: link) else { return }

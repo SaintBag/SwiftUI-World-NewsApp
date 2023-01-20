@@ -51,6 +51,7 @@ struct ImageView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(minWidth: 300, maxWidth: .infinity, minHeight: 220, maxHeight: 280)
+        Text("NO PHOTO")
     }
 }
 
