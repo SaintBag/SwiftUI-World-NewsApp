@@ -9,18 +9,20 @@ import SwiftUI
 
 struct MainView: View {
     
+    @Environment(\.openURL) var openUrl
+    @StateObject private var viewModel: NewsViewModel = NewsViewModel()
+    
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
-    @StateObject private var viewModel: NewsViewModel = NewsViewModel()
+    
     
     var body: some View {
         
         NavigationView {
             
             ZStack {
-                
                 LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.6),  Color.yellow.opacity(0.8)]), startPoint: .trailing, endPoint: .topLeading)
                     .ignoresSafeArea()
                 Color.yellow
@@ -34,6 +36,9 @@ struct MainView: View {
                     LazyVStack(spacing: 24) {
                         ForEach(viewModel.articles) { news in
                             NewsView(article: news)
+                                .onTapGesture {
+                                    load(url: news.url)
+                                }
                         }
                     }
                 }
@@ -42,6 +47,11 @@ struct MainView: View {
                 .onAppear(perform: viewModel.fetchNews)
             }
         }
+    }
+    func load(url: String?) {
+        guard let link = url,
+              let url = URL(string: link) else { return }
+        openUrl(url)
     }
 }
 
